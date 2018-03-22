@@ -2,4 +2,4 @@
 
 *   [Classification](./classification)
 
-    *    [K Nearest Neighbours](./classification/kNearestNeighboursImpr.py)
+    *    [K Nearest Neighbours](classification/kNearestNeighboursAlgo.py)
