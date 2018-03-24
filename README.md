@@ -2,4 +2,7 @@
 
 *   [Classification](./classification)
 
-    *    [K Nearest Neighbours](classification/kNearestNeighboursAlgo.py)
+    *   [K Nearest Neighbours](./classification/kNearestNeighboursAlgo.py)
+    
+    *   [Decision Trees](./classification/decisionTreeAlgo.py)
+     

@@ -7,7 +7,7 @@ def file2matrix(filename):
     fr = open(filename)
     numberOfColumns = len(fr.readline().split(' ')) - 1
     labels = zeros((numberOfLines, 1))
-    features = zeros((numberOfLines, numberOfColumns - 1))
+    features = zeros((numberOfLines, numberOfColumns))
     fr = open(filename)
     index = 0
     for line in fr.readlines():

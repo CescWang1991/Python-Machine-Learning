@@ -11,7 +11,7 @@ def calcShannonEnt(dataSet):
         if currentLabel not in labelCounts.keys():
             labelCounts[currentLabel] = 0
         labelCounts[currentLabel] += 1
-        shannonEnt = 0.0
+    shannonEnt = 0.0
     for key in labelCounts:
         prob = float(labelCounts[key]) / numEntries   # Logarithm base 2
         shannonEnt -= prob * math.log(prob, 2)
@@ -27,7 +27,7 @@ def splitDataSet(dataSet, axis, value):
     return retDataSet
 
 
-def chooseBestFeatureToSplit(dataSet):
+def chooseBestFeatureToSplit(dataSet, labels):
     numFeatures = len(dataSet[0])
     baseEntropy = calcShannonEnt(labels)
     bestInfoGain = 0.0
@@ -61,7 +61,7 @@ def createTree(dataSet, labels):
         return classList[0]
     if len(dataSet[0]) == 1:
         return majorityCnt(classList)
-    bestFeat = chooseBestFeatureToSplit(dataSet)
+    bestFeat = chooseBestFeatureToSplit(dataSet, labels)
     bestFeatLabel = labels[bestFeat]
     myTree = {bestFeatLabel: {}}
     del (labels[bestFeat])
@@ -74,6 +74,7 @@ def createTree(dataSet, labels):
 
 
 def classify(inputTree, featLabels, testVec):
+    classLabel = -1.0
     firstStr = list(inputTree.keys())[0]
     secondDict = inputTree[str(firstStr)]
     featIndex = featLabels.index(firstStr)
@@ -86,10 +87,21 @@ def classify(inputTree, featLabels, testVec):
     return classLabel
 
 
+def datingClassTest(filename):
+    classes, features = file2matrix(filename)
+    dataSet = hstack((features, classes))
+    hoRatio = 0.10
+    m = dataSet.shape[0]
+    trainData = dataSet
+    testData = dataSet[int((1-hoRatio)*m):m]
+    labels = ['name', 'gender', 'height', 'weight']
+    myTree = createTree(trainData, labels)
+    for featVec in testData:
+        labels = ['name', 'gender', 'height', 'weight']
+        result = classify(myTree, labels, featVec)
+        print("the classifier came back with: %d, the real answer is: %d" % (result, featVec[-1]))
+
+
+
 filename = './data/sample_multiclass_classification_data.txt'
-classes, features = file2matrix(filename)
-dataSet = hstack((features, classes))
-labels = ['name', 'gender', 'height', 'weight']
-myTree = createTree(dataSet, labels)
-labels = ['name', 'gender', 'height', 'weight']
-print(classify(myTree, labels, dataSet[0]))
+datingClassTest(filename)
