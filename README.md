@@ -2,7 +2,11 @@
 
 *   [Classification](./classification)
 
-    *   [K Nearest Neighbours](./classification/kNearestNeighboursAlgo.py)
+    *   [K Nearest Neighbours](classification/kNearestNeighboursDemo.py)
     
-    *   [Decision Trees](./classification/decisionTreeAlgo.py)
-     
+    *   [Decision Trees](classification/decisionTreeDemo.py)
+    
+    *   [Naive Bayes](classification/naiveBayesDemo.py)
+    
+    *   [Logistic Regression](classification/logisticRegressionDemo.py)
+    
