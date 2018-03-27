@@ -48,7 +48,6 @@ def classify(testFeat, testLabels, weights):
         print("the classifier came back with: %d, the real answer is: %d" % (predictions[i], testLabels[i]))
         if (predictions[i] != testLabels[i]):
             errorCount += 1.0
-            print("item %d is different" %i)
     print("the total error rate is: %f" % (errorCount / float(len(testLabels))))
 
 
