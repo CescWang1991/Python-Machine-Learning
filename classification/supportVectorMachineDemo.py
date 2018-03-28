@@ -1,6 +1,5 @@
 from classification.function import *
 import random
-import numpy
 
 # i: is the index of our first alpha.
 # m: is the total number of alphas.

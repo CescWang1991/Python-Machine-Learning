@@ -10,3 +10,8 @@
     
     *   [Logistic Regression](classification/logisticRegressionDemo.py)
     
+    *   [Support Vector Machine](classification/supportVectorMachineDemo.py)
+    
+    *   [Case: Meeting Supply and Demand](classification/case/medicalAppointment.py)
+    
+*   Regression
