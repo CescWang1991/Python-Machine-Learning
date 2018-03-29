@@ -7,7 +7,7 @@ def cv_imread(filePath):
 
 
 if __name__ == '__main__':
-    path = 'C:\\Users\\a\\Google 云端硬盘\\图片\\Yang'
+    path = 'C:\\Users\\a\\Google 云端硬盘\\图片\\Zhou'
     folders = os.listdir(path)
     for folder in folders:
         if os.path.isdir(os.path.join(path, folder)):
