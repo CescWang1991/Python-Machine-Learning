@@ -3,7 +3,6 @@
 #                 in training data.
 
 from classification.function import *
-import math
 
 
 def createFeatList(features):

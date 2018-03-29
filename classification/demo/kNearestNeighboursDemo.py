@@ -1,4 +1,3 @@
-from numpy import *
 from classification.function import *
 import operator
 

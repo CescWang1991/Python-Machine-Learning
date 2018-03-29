@@ -1,5 +1,3 @@
-from math import log
-import numpy
 from classification.function import *
 
 
