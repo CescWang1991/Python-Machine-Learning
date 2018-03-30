@@ -1,6 +1,6 @@
 # Python_Machine_Learning
 
-*   [Classification](./classification)
+*   [Classification](classification)
 
     *   [K Nearest Neighbours](classification/demo/kNearestNeighboursDemo.py)
     
@@ -14,4 +14,9 @@
     
     *   [Case: Meeting Supply and Demand](classification/case/medicalAppointment.py)
     
-*   Regression
+*   [Regression](regression)
+
+    *   [Linear Regression](regression/demo/linear_model.py)
+    
+    *   [Tree-based Regression](regression/demo/tree_based_regression-demo.py)
+    
