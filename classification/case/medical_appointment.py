@@ -1,5 +1,5 @@
 #! python 3
-# medicalAppointment.py -
+# medical_appointment.py -
 
 import numpy as np
 import pandas as pd
