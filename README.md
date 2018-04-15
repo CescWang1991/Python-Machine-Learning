@@ -20,3 +20,5 @@
     
     *   [Tree-based Regression](regression/demo/tree_based_regression-demo.py)
     
+    *   [Case: Housing Pricing](regression/case/housing_price.py)
+    
