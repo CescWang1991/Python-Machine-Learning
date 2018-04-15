@@ -3,7 +3,7 @@
 ## Introcution
 A person makes a doctor appointment, receives all the instructions and no-show. 300k medical appointments and its 15 variables (characteristics) of each. The most important one if the patient show-up or no-show the appointment. Use this 300k medical appointments data to train a model to predicate whether a person will show after he or she makes an appointment.</br>
 
-Dataset available on [kaggle](www.kaggle.com/joniarroba/noshowappointments), and [local](../data/KaggleV2-May-2016.csv).
+Dataset available on [kaggle](https://www.kaggle.com/joniarroba/noshowappointments), and [local](../data/KaggleV2-May-2016.csv).
 
 ## Data Dictionary
 | Feature Name | Description | Type |
