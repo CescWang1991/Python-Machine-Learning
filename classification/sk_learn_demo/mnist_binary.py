@@ -123,4 +123,53 @@ plot_roc_curve(fpr_forest, tpr_forest, "Random Forest")
 plt.legend()
 #plt.show()
 
-print(roc_auc_score(y_train_5, y_scores_forest))    # 0.9927261265711859
+# print(roc_auc_score(y_train_5, y_scores_forest))    # 0.9927261265711859
+
+# multiclass classification
+sgd_clf.fit(X_train, y_train)
+# print(sgd_clf.predict([some_digit]))    # [3.]
+some_digit_scores = sgd_clf.decision_function([some_digit])
+# print(some_digit_scores)                # return 10 scores
+# print(np.argmax(some_digit_scores))     # 3
+# print(sgd_clf.classes_[np.argmax(some_digit_scores)])   # 3.0
+
+from sklearn.multiclass import OneVsOneClassifier
+
+# creates a multiclass classifier using the OvO strategy, based on a SGDClassifier
+# ovo_clf = OneVsOneClassifier(SGDClassifier(random_state=42))
+# ovo_clf.fit(X_train, y_train)
+# print(ovo_clf.predict([some_digit]))
+
+# Training a RandomForestClassifier
+forest_clf.fit(X_train, y_train)
+# print(forest_clf.predict([some_digit]))
+
+# Let's evaluate the SGDClassifier's accuracy using the cross_val_score() function
+sgd_clf_acc = cross_val_score(sgd_clf, X_train, y_train, cv=3, scoring="accuracy")
+# print(sgd_clf_acc)      # [0.84168166 0.85414271 0.87548132]
+
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train.astype(np.float64))
+sgd_scale_acc = cross_val_score(sgd_clf, X_train_scaled, y_train, cv=3, scoring="accuracy")
+# print(sgd_scale_acc)      # [0.90931814 0.9080954  0.91323699]
+
+# make predictions using the cross_val_predict() function, then call the confusion_matrix() function
+y_train_pred = cross_val_predict(sgd_clf, X_train_scaled, y_train, cv=3)
+conf_mx = confusion_matrix(y_train, y_train_pred)
+# plt.matshow(conf_mx, cmap="gray")
+# plt.show()
+
+from sklearn.neighbors import KNeighborsClassifier
+
+y_train_large = (y_train >= 7)
+y_train_odd = (y_train % 2 == 1)
+y_multilabel = np.c_[y_train_large, y_train_odd]
+
+knn_clf = KNeighborsClassifier()
+knn_clf.fit(X_train, y_multilabel)
+print(knn_clf.predict([some_digit]))
+
+y_train_knn_pred = cross_val_predict(knn_clf, X_train, y_train, cv=3)
+print(f1_score(y_train, y_train_knn_pred, average="macro"))
