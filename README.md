@@ -8,7 +8,7 @@
     
     *   [Naive Bayes](classification/demo/naive_bayes_demo.py)
     
-    *   [Logistic Regression](classification/demo/logistic_regression_demo.py)
+    *   [Logistic Regression](classification/demo/logistic_regression_demo.py) [[scikit-learn](classification/sk_learn_demo/logistic_regression.ipynb)]
     
     *   [Support Vector Machine](classification/demo/support_vector_machine_demo.py)
     
@@ -16,7 +16,7 @@
     
 *   [Regression](regression)
 
-    *   [Linear Regression](regression/demo/linear_model.py)
+    *   [Linear Regression](regression/demo/linear_model.py) [[scikit-learn](regression/sklearn_demo/linear_regression.ipynb)]
     
     *   [Tree-based Regression](regression/demo/tree_based_regression-demo.py)
     
