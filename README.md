@@ -10,7 +10,7 @@
     
     *   [Logistic Regression](classification/demo/logistic_regression_demo.py) [[scikit-learn](classification/sk_learn_demo/logistic_regression.ipynb)]
     
-    *   [Support Vector Machine](classification/demo/support_vector_machine_demo.py)
+    *   [Support Vector Machine](classification/demo/support_vector_machine_demo.py) [[scikit_learn](classification/sk_learn_demo/support_vector_machine.ipynb)]
     
     *   [Case: Meeting Supply and Demand](classification/case/medical_appointment.py)
     
