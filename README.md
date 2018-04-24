@@ -22,3 +22,7 @@
     
     *   [Case: Housing Pricing](regression/case/housing_price.py)
     
+*   [Dimensionality Reduction](reduction)
+
+    *   PCA [[scikit-learn](reduction/sklearn_demo/principle_component_analysis.ipynb)]
+    
