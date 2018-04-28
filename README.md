@@ -14,6 +14,8 @@
     
     *   [Case: Meeting Supply and Demand](classification/case/medical_appointment.py)
     
+    *   Case: Titanic: Machine Learning from Disaster [[Kaggle](https://www.kaggle.com/c/titanic)]
+    
 *   [Regression](regression)
 
     *   [Linear Regression](regression/demo/linear_model.py) [[scikit-learn](regression/sklearn_demo/linear_regression.ipynb)]
