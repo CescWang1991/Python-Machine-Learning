@@ -52,7 +52,7 @@ def classify(testFeat, testLabels, weights):
 
 
 
-filename = './data/sample_binary_classification_data.txt'
+filename = '../data/sample_binary_classification_data.txt'
 labels, features = file2matrix(filename)
 hoRatio = 0.20
 m, n = shape(features)

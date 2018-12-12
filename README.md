@@ -12,9 +12,11 @@
     
     *   [Support Vector Machine](classification/demo/support_vector_machine_demo.py) [[scikit_learn](classification/sk_learn_demo/support_vector_machine.ipynb)]
     
+    *   [Linear Discriminant Analysis](classification/demo/linear_discriminant_analysis_demo.py)
+    
     *   [Case: Meeting Supply and Demand](classification/case/medical_appointment.py)
     
-    *   [Case: Titanic: Machine Learning from Disaster](classification/case/Titanic.ipynb) [[Kaggle](https://www.kaggle.com/c/titanic)]
+    *  [Case: Titanic: Machine Learning from Disaster](classification/case/Titanic.ipynb) [[Kaggle](https://www.kaggle.com/c/titanic)]
     
 *   [Regression](regression)
 

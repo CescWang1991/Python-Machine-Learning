@@ -1,6 +1,5 @@
 from classification.function import *
 
-
 def calcShannonEnt(dataSet):
     numEntries = len(dataSet)
     labelCounts = {}
