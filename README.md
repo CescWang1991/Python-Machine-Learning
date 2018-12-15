@@ -4,7 +4,7 @@
 
     *   [K Nearest Neighbours](classification/demo/k_nearest_neighbours_demo.py)
     
-    *   [Decision Trees](classification/demo/decision_tree_demo.py)
+    *   [Decision Trees](classification/demo/class_decision_tree_demo.py)
     
     *   [Naive Bayes](classification/demo/naive_bayes_demo.py)
     
@@ -22,7 +22,7 @@
 
     *   [Linear Regression](regression/demo/linear_model.py) [[scikit-learn](regression/sklearn_demo/linear_regression.ipynb)]
     
-    *   [Tree-based Regression](regression/demo/tree_based_regression-demo.py)
+    *   [Decision Tree](regression/demo/regre_decision_tree_demo.py)
     
     *   [Case: Housing Pricing](regression/case/housing_price.py)
     
