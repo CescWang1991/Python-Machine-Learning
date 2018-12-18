@@ -30,4 +30,8 @@
 *   [Dimensionality Reduction](reduction)
 
     *   PCA [[scikit-learn](reduction/sklearn_demo/principle_component_analysis.ipynb)]
+
+*   [Clustering](clustering)
+
+    *   [k-means](clustering/demo/k_means_cluster.py)
     

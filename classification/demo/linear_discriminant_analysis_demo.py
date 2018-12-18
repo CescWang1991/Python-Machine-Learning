@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.datasets.samples_generator import make_classification
 
 class LDA:
 
@@ -87,15 +86,3 @@ class LDA:
         plt.plot(X_predict1, [0.75 for i in range(len(X_predict1))], 'ro')
 
         plt.show()
-
-
-if '__main__' == __name__:
-    # 生成训练集数据
-    X, y = make_classification(n_samples=500, n_features=2, n_redundant=0, n_classes=2,
-                               n_informative=1, n_clusters_per_class=1, class_sep=0.5, random_state=10)
-    clf = LDA()
-    clf.fit(X, y)
-    # 生成测试集数据
-    X_, y_ = make_classification(n_samples=25, n_features=2, n_redundant=0, n_classes=2,
-                                 n_informative=1, n_clusters_per_class=1, class_sep=0.5, random_state=10)
-    clf.plot(X, y, X_, y_)

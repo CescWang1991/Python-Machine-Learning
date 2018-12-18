@@ -1,4 +1,3 @@
-from sklearn import datasets
 import math
 import numpy as np
 
@@ -104,14 +103,3 @@ class NaiveBayes:
             labels[j] = sorted(prob.items(), key=lambda x:x[1], reverse=True)[0][0]
 
         return np.array(labels)
-
-
-if '__main__' == __name__:
-    # 生成训练集数据, m = 1797, n = 64
-    data = datasets.load_digits()
-    feat = data['data']
-    labels = data['target']
-    clf = NaiveBayes()
-    clf.fit(feat[:1700], labels[:1700])
-    print(clf.predict(feat[1700:]))
-    print(labels[1700:])

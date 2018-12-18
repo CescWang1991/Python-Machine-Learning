@@ -1,50 +1,49 @@
-from classification.function import *
-import operator
+import math
+import numpy as np
 
+class KNN:
 
-# the input vector to classify called inX                       # [x , y]
-# our full matrix of training examples called dataSet           # [[x1, y1], [x2, y2], ...]
-# a vector of labels called labels                              # [l1, l2 ,...]
-# the number of nearest neighbors to use in the voting k
-def classify(inX, dataSet, labels, k):
-    dataSetSize = dataSet.shape[0]
-    diffMat = tile(inX, (dataSetSize, 1)) - dataSet             # diffMat: [x1 - x2, y1 - y2]
-    sqDiffMat = diffMat ** 2                                    # 平方
-    sqDistances = sqDiffMat.sum(axis=1)                         # 而当加入axis=1以后就是将一个矩阵的每一行向量相加 (x1 + y1)
-    distances = sqDistances ** 0.5                              # 根号
-    sortedDistIndicies = distances.argsort()                    # 排序
-    classCount = {}
-    for i in range(k):
-        voteIlabel = labels[sortedDistIndicies[i]][0]           # 按排序从小到大取label
-        classCount[voteIlabel] = classCount.get(voteIlabel, 0) + 1
-    sortedClassCount = sorted(classCount.items(), key=operator.itemgetter(1), reverse=True)
-    return sortedClassCount[0][0]
+    def __init__(self, k):
+        self.k = k
 
+    def fit(self, feat, labels):
+        """
+        Function:        Fit the model with k nearest neighbours
 
-def autoNorm(dataSet):
-    minVals = dataSet.min(0)
-    maxVals = dataSet.max(0)
-    ranges = maxVals - minVals
-    normDataSet = zeros(shape(dataSet))
-    m = dataSet.shape[0]
-    normDataSet = dataSet - tile(minVals, (m,1))
-    normDataSet = normDataSet/tile(ranges, (m,1))
-    return normDataSet, ranges, minVals
+        Parameters:      X : numpy array of shape [n_samples,n_features]
+                             Training data
+                         y : numpy array of shape [n_samples]
+                             Target values. Will be cast to X's dtype if necessary
 
+        Returns:         self : returns an instance of self.
+        """
+        self.feat = feat
+        self.labels = labels
+        self.labelSet = list(set(labels))
 
-def datingClassTest(filename):
-    hoRatio = 0.10
-    labels, features = file2matrix(filename)
-    normDataSet, ranges, minVals = autoNorm(features)
-    m = normDataSet.shape[0]
-    numTestVecs = int(m*hoRatio)
-    errorCount = 0.0
-    for i in range(numTestVecs):
-        classifierResult = classify(normDataSet[i,:],normDataSet[numTestVecs:m,:], labels[numTestVecs:m], 3)
-        print("the classifier came back with: %d, the real answer is: %d" % (classifierResult, labels[i]))
-        if (classifierResult != labels[i]): errorCount += 1.0
-    print("the total error rate is: %f" % (errorCount/float(numTestVecs)))
+    def predict(self, test):
+        """
+        Function:        Predict using the KNN model.
 
+        Parameters:      X : numpy array of shape = (n_samples, n_features)
+                             Test Samples.
 
-filename = './data/sample_multiclass_classification_data.txt'
-datingClassTest(filename)
+        Returns          y : array, shape = (n_samples, 1)
+                             Prediction of query points.
+        """
+        output = np.zeros((len(test), ), dtype=np.int)
+        for i in range(len(test)):
+            vote = {}
+            distSet = []        # 保存到每一个训练点的距离，以及训练点的label
+            numEntity = len(self.feat)
+            numFeat = len(self.feat[0])
+            for j in range(numEntity):
+                dist = 0.0
+                for k in range(numFeat):
+                    dist += (test[i][k] - self.feat[j][k]) * (test[i][k] - self.feat[j][k])
+                distSet.append((math.sqrt(dist), self.labels[j]))
+            for elem in sorted(distSet, key=lambda x:x[0])[:self.k]:
+                vote[elem[1]] = vote.get(elem[1], 0) + 1
+            output[i] = sorted(vote.items(), key=lambda x:x[1], reverse=True)[0][0]
+
+        return output
