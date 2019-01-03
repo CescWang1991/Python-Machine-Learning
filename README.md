@@ -35,3 +35,4 @@
 
     *   [k-means](clustering/demo/k_means_cluster.py)
     
+    *   [collaborative filtering](clustering/demo/collaborative_filtering.py)
