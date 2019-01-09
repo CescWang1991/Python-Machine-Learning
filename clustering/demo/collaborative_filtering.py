@@ -1,4 +1,6 @@
-# 利用协同过滤算法实现一个电影推荐的应用
+"""
+协同过滤算法的简单实现
+"""
 
 import pandas as pd
 import math
@@ -74,7 +76,11 @@ class collaborative_filtering:
 
         return sumTop / sumBottom if sumBottom != 0.0 else 0.0
 
+
 if __name__ == "__main__":
+    """
+    利用协同过滤算法实现电影的推荐
+    """
     ratings = pd.read_csv("../data/ratings.csv")  # ratings包含userId，movieId，rating，time
     # print(ratings[ratings["movieId"] <= 10])
     clt = collaborative_filtering(ratings[ratings["movieId"] <= 20])   # 我们选取其中的100部电影
